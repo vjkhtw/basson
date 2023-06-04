@@ -1,0 +1,39 @@
+{% extends 'myapp/base.html' %}  
+<title>{% block title %} Home {% endblock title %}</title>
+
+{% block content %}
+    <div class="container">  
+      <h1>Welcome To Food Waste Tracker</h1>
+      <p class="text-muted">Project by <b>Bidhan Malla(Student ID : 344079)</b> & <b>Prabesh Baskota(Student ID : 333608)</b></p>
+      <h3>Overview</h3>
+      <p>Annually, roughly one-third of food grown for human ingestion goes to waste globally. This translates to roughly 1.3 billion tons of food waste, costing the world economy nearly $1 trillion. Food waste has substantial environmental implications, accounting for 8% of global greenhouse gas emissions. Many solutions exist to mitigate food waste at different points in the supply chain.
+        Consumers can make an impact by planning meals ahead, creating grocery lists, adequately storing food to extend its shelf life, avoiding over-preparing meals, and composting food scraps. Restaurants and retailers can enact programs to donate unsold edible food to food banks rather than throwing it out. Farmers can prevent crop loss through enhanced harvesting and storage techniques. Governments and organizations can back these efforts through public awareness initiatives, incentives, and legislation.
+        The issue of food waste is complex, but even minor reductions at each step can considerably lower the total amount of waste. With worldwide attention and action, we can make progress in confronting this serious problem. Better supply chain management, shifts in consumer behavior, food donation programs, and innovations in food production and storage all have roles to play.
+        To track the issue, a food waste monitoring website could help provide data, metrics, and accountability.
+        <br>
+        <h3>Website's Specifications</h3>
+        This food waste tracker website provides a useful tool for households and businesses to quantify and reduce their food waste. The website allows users to record the type and amount of food that gets thrown away on a regular basis. At a higher level, types of food waste can be categorized to identify areas of improvement. Over time, as more data is collected, trends can be seen and targeted efforts can be made to reduce particular sources of waste. The web app employs the Django framework, version 4.0, providing an intuitive interface where users can:
+              <ol>
+                <li>• Create food categories and add specific food items, managing their inventory</li><br>
+                <li>• Record instances of food waste under relevant categories</li><br>
+                <li>• Easily modify, edit, or delete food items or records</li><br>
+                <li>• View summaries of total waste amounts and types of foods wasted most often</li>
+              </ol>
+        With the <b>FoodCategory</b> and <b>Food models</b>, users can create categories of food and add specific food items to the database, respectively. Then, with the <b>WasteCategory</b> and <b>FoodWaste</b> models, users can record instances of food waste, specifying the type of food, the category of waste, the amount of waste, and the date recorded. Finally, with the <b>food_list</b> and <b>foodwaste_list</b> views, users can view lists of all the food and food waste objects in the database, respectively.
+        <br>
+        Some key features of the website are:
+            <ol>
+              <li>• <b>The ability to create and manage different food items</b> - Users can define various food products they consume and store details like the amount normally purchased.</li>
+              <br>
+              <li>• <b>Food waste categories</b> - Users can organize wasted food into categories like 'expired', 'spoiled', 'leftovers', etc. This helps identify where the major sources of waste are coming from.</li>
+              <br>
+              <li>• <b>Detailed waste records</b> - Each instance of wasted food is recorded with the amount, food type, waste category, and date. This provides a complete picture of food waste events.</li>
+              <br>
+              <li>• <b>Data over time</b> - As more waste records are added, users can analyze metrics like total waste per month, most wasted food items, changes in waste amounts, etc. This performance tracking can motivate and guide waste reduction efforts.</li>
+              <br>
+              <li>• <b>CRUD Functionality</b> - Users can create, read(formatted in a table), update and delete <b>Food Category</b>, <b>Food Waste Category</b>, <b>Food</b> and <b>Waste</b>.</li>
+            </ol>
+      </p>
+   </div>
+   
+{% endblock %}

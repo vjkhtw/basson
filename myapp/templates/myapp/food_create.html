@@ -1,0 +1,13 @@
+{% extends 'myapp/base.html' %}  
+{% block content %}
+<div class = "container">
+  <form method="POST" action="{% url 'food_create' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Food</button>
+  </form>
+</div>
+{% endblock content %}
+  
+
+

@@ -1,0 +1,47 @@
+{% extends 'myapp/base.html' %}  
+{% block content %}
+<style>
+  th, td {
+    border: 2px solid black;
+    padding: 5px;
+  }
+</style>
+{% for category in categories %}
+<div class="container">
+  <h2>{{ category.name }}</h2>
+  <table style="width:80%; border-collapse: collapse; border: 2px solid black;">
+    <thead>
+      <tr>
+        <th>Food Item</th>
+        <th>Amount Wasted (kg)</th>
+        <th>Date Recorded</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for foodwaste in category.foodwaste_set.all %}
+      <tr>
+        <td>{{ foodwaste.food.name }}</td>
+        <td>{{ foodwaste.amount }} kg</td>
+        <td>{{ foodwaste.date_recorded }}</td>
+        <td>
+          <a href="{% url 'foodwaste_update' foodwaste.pk %}">Edit</a>
+            <a href="{% url 'foodwaste_detail' foodwaste.pk %}">Details</a>
+            <a href="{% url 'foodwaste_delete' foodwaste.pk %}" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+          </td>
+      </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No foods in this category.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endfor %}
+<div class = "container">
+  <a href="{% url 'foodwaste_create' %}">Record Food Waste</a>
+</div>
+  
+
+{% endblock content %}
